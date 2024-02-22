@@ -1,4 +1,4 @@
-package br.com.guilchaves.creditofferapp.service;
+package br.com.guilchaves.creditofferapp.services;
 
 import br.com.guilchaves.creditofferapp.dto.ProposalRequestDTO;
 import br.com.guilchaves.creditofferapp.dto.ProposalResponseDTO;

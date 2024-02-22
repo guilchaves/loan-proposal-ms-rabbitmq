@@ -1,4 +1,4 @@
-package br.com.guilchaves.creditofferapp.entity;
+package br.com.guilchaves.creditofferapp.entities;
 
 import jakarta.persistence.*;
 

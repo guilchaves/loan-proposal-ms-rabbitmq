@@ -2,7 +2,7 @@ package br.com.guilchaves.creditofferapp.controllers;
 
 import br.com.guilchaves.creditofferapp.dto.ProposalRequestDTO;
 import br.com.guilchaves.creditofferapp.dto.ProposalResponseDTO;
-import br.com.guilchaves.creditofferapp.service.ProposalService;
+import br.com.guilchaves.creditofferapp.services.ProposalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
