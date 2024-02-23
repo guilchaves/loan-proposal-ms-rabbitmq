@@ -16,15 +16,22 @@ public class ProposalService {
     @Autowired
     private ProposalRepository repository;
 
+    @Autowired
+    private NotificationService notificationService;
+
     public List<ProposalResponseDTO> findAll() {
         Iterable<Proposal> proposals = repository.findAll();
         return ProposalMapper.INSTANCE.convertListEntityToListDto(proposals);
     }
 
-    public ProposalResponseDTO insert(ProposalRequestDTO requestDTO){
+    public ProposalResponseDTO insert(ProposalRequestDTO requestDTO) {
         Proposal proposal = ProposalMapper.INSTANCE.convertDtoToEntity(requestDTO);
         repository.save(proposal);
-        return ProposalMapper.INSTANCE.convertEntityToDto(proposal);
+
+        ProposalResponseDTO response = ProposalMapper.INSTANCE.convertEntityToDto(proposal);
+        notificationService.notifiy(response, "proposal-pending.ex");
+
+        return response;
     }
 
 }
