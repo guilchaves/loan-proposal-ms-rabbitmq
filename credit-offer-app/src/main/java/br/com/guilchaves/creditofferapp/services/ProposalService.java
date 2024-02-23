@@ -8,15 +8,23 @@ import br.com.guilchaves.creditofferapp.repositories.ProposalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class ProposalService {
 
     @Autowired
     private ProposalRepository repository;
 
+    public List<ProposalResponseDTO> findAll() {
+        Iterable<Proposal> proposals = repository.findAll();
+        return ProposalMapper.INSTANCE.convertListEntityToListDto(proposals);
+    }
+
     public ProposalResponseDTO insert(ProposalRequestDTO requestDTO){
         Proposal proposal = ProposalMapper.INSTANCE.convertDtoToEntity(requestDTO);
         repository.save(proposal);
         return ProposalMapper.INSTANCE.convertEntityToDto(proposal);
     }
+
 }
