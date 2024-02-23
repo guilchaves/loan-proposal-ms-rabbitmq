@@ -2,6 +2,7 @@ package br.com.guilchaves.creditofferapp.dto;
 
 public class ProposalResponseDTO {
 
+    private Long id;
     private String name;
     private String lastName;
     private String phone;
@@ -15,7 +16,8 @@ public class ProposalResponseDTO {
     public ProposalResponseDTO() {
     }
 
-    public ProposalResponseDTO(String name, String lastName, String phone, String document, Double income, Double requestedAmount, int loanRepaymentTermMonths, Boolean approved, String observation) {
+    public ProposalResponseDTO(Long id, String name, String lastName, String phone, String document, Double income, Double requestedAmount, int loanRepaymentTermMonths, Boolean approved, String observation) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.phone = phone;
@@ -25,6 +27,14 @@ public class ProposalResponseDTO {
         this.loanRepaymentTermMonths = loanRepaymentTermMonths;
         this.approved = approved;
         this.observation = observation;
+    }
+
+    public Long getId(){
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
