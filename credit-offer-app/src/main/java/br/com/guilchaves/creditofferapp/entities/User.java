@@ -1,15 +1,7 @@
 package br.com.guilchaves.creditofferapp.entities;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
 
-@AllArgsConstructor
-@NoArgsConstructor
-@Getter
-@Setter
 @Entity
 @Table(name = "tb_user")
 public class User {
@@ -26,4 +18,72 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Proposal proposal;
 
+    public User() {
+    }
+
+    public User(Long id, String name, String lastName, String document, String phone, Double income, Proposal proposal) {
+        this.id = id;
+        this.name = name;
+        this.lastName = lastName;
+        this.document = document;
+        this.phone = phone;
+        this.income = income;
+        this.proposal = proposal;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getDocument() {
+        return document;
+    }
+
+    public void setDocument(String document) {
+        this.document = document;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public Double getIncome() {
+        return income;
+    }
+
+    public void setIncome(Double income) {
+        this.income = income;
+    }
+
+    public Proposal getProposal() {
+        return proposal;
+    }
+
+    public void setProposal(Proposal proposal) {
+        this.proposal = proposal;
+    }
 }
