@@ -6,6 +6,7 @@ import br.com.guilchaves.creditofferapp.entities.Proposal;
 import br.com.guilchaves.creditofferapp.mappers.ProposalMapper;
 import br.com.guilchaves.creditofferapp.repositories.ProposalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -19,6 +20,10 @@ public class ProposalService {
     @Autowired
     private NotificationService notificationService;
 
+    @Autowired
+    @Value("${rabbitmq.proposalpending.exchange}")
+    private String exchange;
+
     public List<ProposalResponseDTO> findAll() {
         Iterable<Proposal> proposals = repository.findAll();
         return ProposalMapper.INSTANCE.convertListEntityToListDto(proposals);
@@ -29,7 +34,7 @@ public class ProposalService {
         repository.save(proposal);
 
         ProposalResponseDTO response = ProposalMapper.INSTANCE.convertEntityToDto(proposal);
-        notificationService.notifiy(response, "proposal-pending.ex");
+        notificationService.notifiy(response, exchange);
 
         return response;
     }
