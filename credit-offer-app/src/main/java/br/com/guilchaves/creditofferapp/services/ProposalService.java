@@ -14,7 +14,7 @@ public class ProposalService {
     @Autowired
     private ProposalRepository repository;
 
-    public ProposalResponseDTO create(ProposalRequestDTO requestDTO){
+    public ProposalResponseDTO insert(ProposalRequestDTO requestDTO){
         Proposal proposal = ProposalMapper.INSTANCE.convertDtoToEntity(requestDTO);
         repository.save(proposal);
         return ProposalMapper.INSTANCE.convertEntityToDto(proposal);

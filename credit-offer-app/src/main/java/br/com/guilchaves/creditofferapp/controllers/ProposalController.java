@@ -21,8 +21,8 @@ public class ProposalController {
     private ProposalService service;
 
     @PostMapping
-    public ResponseEntity<ProposalResponseDTO> create(@RequestBody ProposalRequestDTO dto) {
-        ProposalResponseDTO response = service.create(dto);
+    public ResponseEntity<ProposalResponseDTO> insert(@RequestBody ProposalRequestDTO dto) {
+        ProposalResponseDTO response = service.insert(dto);
         URI uri = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
