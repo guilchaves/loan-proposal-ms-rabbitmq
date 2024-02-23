@@ -23,7 +23,6 @@ public interface ProposalMapper {
     @Mapping(target = "observation", ignore = true)
     Proposal convertDtoToEntity(ProposalRequestDTO dto);
 
-
     @Mapping(target = "name", source = "user.name")
     @Mapping(target = "lastName", source = "user.lastName")
     @Mapping(target = "phone", source = "user.phone")
