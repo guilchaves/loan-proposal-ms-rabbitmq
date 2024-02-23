@@ -32,11 +32,16 @@ public class ProposalService {
     public ProposalResponseDTO insert(ProposalRequestDTO requestDTO) {
         Proposal proposal = ProposalMapper.INSTANCE.convertDtoToEntity(requestDTO);
         repository.save(proposal);
-
-        ProposalResponseDTO response = ProposalMapper.INSTANCE.convertEntityToDto(proposal);
-        notificationService.notifiy(response, exchange);
-
-        return response;
+        notifyRabbitMQ(proposal);
+        return ProposalMapper.INSTANCE.convertEntityToDto(proposal);
     }
 
+    private void notifyRabbitMQ(Proposal proposal){
+        try {
+            notificationService.sendNotification(proposal, exchange);
+        } catch (RuntimeException ex){
+            proposal.setIntegrated(false);
+            repository.save(proposal);
+        }
+    }
 }

@@ -1,13 +1,7 @@
 package br.com.guilchaves.creditofferapp.entities;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
 
 @Entity
 @Table(name = "tb_proposal")
@@ -19,11 +13,13 @@ public class Proposal {
     private Double requestedAmount;
     private int loanRepaymentTermMonths;
     private Boolean approved;
+    @Column(columnDefinition = "boolean default true")
     private boolean integrated;
     private String observation;
 
     @OneToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "id_user")
+    @JsonManagedReference
     private User user;
 
     public Proposal() {
