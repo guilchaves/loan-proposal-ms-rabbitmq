@@ -16,6 +16,6 @@ public class ProposalPendingListener {
     @RabbitListener(queues = "${rabbitmq.queue.proposal.pending}")
     public void proposalPending(Proposal proposal){
         String message = String.format(Message.PROPOSAL_UNDER_REVIEW, proposal.getUser().getName());
-        notificationSnsService.sendNotification(message);
+        notificationSnsService.sendNotification(proposal.getUser().getPhone(), message);
     }
 }
