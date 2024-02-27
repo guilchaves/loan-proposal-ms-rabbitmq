@@ -17,7 +17,10 @@ import org.springframework.context.annotation.Configuration;
 public class RabbitMQConfiguration {
 
     @Value("${rabbitmq.proposalpending.exchange}")
-    private String exchange;
+    private String exchangeProposalPending;
+
+    @Value("${rabbitmq.proposalcompleted.exchange}")
+    private String exchangeProposalCompleted;
 
     @Bean
     public RabbitAdmin createRabbitAdmin(ConnectionFactory connectionFactory){
@@ -29,43 +32,60 @@ public class RabbitMQConfiguration {
         return event -> rabbitAdmin.initialize();
     }
 
+    @Bean
+    public FanoutExchange createFanoutExchangeProposalPending(){
+        return ExchangeBuilder.fanoutExchange(exchangeProposalPending).build();
+    }
+
+    @Bean
+    public FanoutExchange createFanoutExchangeProposalCompleted(){
+        return ExchangeBuilder.fanoutExchange(exchangeProposalCompleted).build();
+    }
+
     //Todo
     // extract create queue methods to corresponding microservices
     @Bean
-    public Queue createQueueProposalPendingMsCreditAnalysis(){
+    public Queue createQueueProposalPendingMSCreditAnalysis(){
         return QueueBuilder.durable("proposal-pending.ms-credit-analysis").build();
     }
 
     @Bean
-    public Queue createQueueProposalPendingMsNotification(){
+    public Queue createQueueProposalPendingMSNotification(){
         return QueueBuilder.durable("proposal-pending.ms-notification").build();
     }
 
     @Bean
-    public Queue createQueueProposalFinishedMsProposal(){
-        return QueueBuilder.durable("proposal-finished.ms-proposal").build();
+    public Queue createQueueProposalCompletedMSProposal(){
+        return QueueBuilder.durable("proposal-completed.ms-proposal").build();
     }
 
     @Bean
-    public Queue createQueueProposalFinishedMsNotification(){
-        return QueueBuilder.durable("proposal-finished.ms-notification").build();
+    public Queue createQueueProposalCompletedMSNotification(){
+        return QueueBuilder.durable("proposal-completed.ms-notification").build();
     }
 
     @Bean
-    public FanoutExchange createFanoutExchangeProposalPending(){
-        return ExchangeBuilder.fanoutExchange(exchange).build();
-    }
-
-    @Bean
-    public Binding createBindingProposalPendingMsCreditAnalysis(){
-        return BindingBuilder.bind(createQueueProposalPendingMsCreditAnalysis())
+    public Binding createBindingProposalPendingMSCreditAnalysis(){
+        return BindingBuilder.bind(createQueueProposalPendingMSCreditAnalysis())
                 .to(createFanoutExchangeProposalPending());
     }
 
     @Bean
-    public Binding createBindingProposalPendingMsNotification(){
-        return BindingBuilder.bind(createQueueProposalPendingMsNotification())
+    public Binding createBindingProposalPendingMSNotification(){
+        return BindingBuilder.bind(createQueueProposalPendingMSNotification())
                 .to(createFanoutExchangeProposalPending());
+    }
+
+    @Bean
+    public Binding createBindingProposalCompletedMSProposalApp(){
+        return BindingBuilder.bind(createQueueProposalCompletedMSProposal())
+                .to(createFanoutExchangeProposalCompleted());
+    }
+
+    @Bean
+    public Binding createBindingProposalCompletedMSNotification(){
+        return BindingBuilder.bind(createQueueProposalCompletedMSNotification())
+                .to(createFanoutExchangeProposalCompleted());
     }
 
     @Bean
