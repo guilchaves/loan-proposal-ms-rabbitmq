@@ -1,8 +1,8 @@
-package br.com.guilchaves.creditofferapp.mappers;
+package br.com.guilchaves.loanproposal.mappers;
 
-import br.com.guilchaves.creditofferapp.dto.ProposalRequestDTO;
-import br.com.guilchaves.creditofferapp.dto.ProposalResponseDTO;
-import br.com.guilchaves.creditofferapp.entities.Proposal;
+import br.com.guilchaves.loanproposal.dto.ProposalRequestDTO;
+import br.com.guilchaves.loanproposal.dto.ProposalResponseDTO;
+import br.com.guilchaves.loanproposal.entities.Proposal;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 import org.mapstruct.factory.Mappers;

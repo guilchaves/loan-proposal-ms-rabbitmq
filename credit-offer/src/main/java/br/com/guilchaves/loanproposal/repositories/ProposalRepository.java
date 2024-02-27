@@ -1,6 +1,6 @@
-package br.com.guilchaves.creditofferapp.repositories;
+package br.com.guilchaves.loanproposal.repositories;
 
-import br.com.guilchaves.creditofferapp.entities.Proposal;
+import br.com.guilchaves.loanproposal.entities.Proposal;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

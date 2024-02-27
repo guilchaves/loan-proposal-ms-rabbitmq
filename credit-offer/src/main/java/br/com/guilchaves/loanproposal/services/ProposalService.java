@@ -1,10 +1,10 @@
-package br.com.guilchaves.creditofferapp.services;
+package br.com.guilchaves.loanproposal.services;
 
-import br.com.guilchaves.creditofferapp.dto.ProposalRequestDTO;
-import br.com.guilchaves.creditofferapp.dto.ProposalResponseDTO;
-import br.com.guilchaves.creditofferapp.entities.Proposal;
-import br.com.guilchaves.creditofferapp.mappers.ProposalMapper;
-import br.com.guilchaves.creditofferapp.repositories.ProposalRepository;
+import br.com.guilchaves.loanproposal.dto.ProposalRequestDTO;
+import br.com.guilchaves.loanproposal.dto.ProposalResponseDTO;
+import br.com.guilchaves.loanproposal.entities.Proposal;
+import br.com.guilchaves.loanproposal.mappers.ProposalMapper;
+import br.com.guilchaves.loanproposal.repositories.ProposalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;

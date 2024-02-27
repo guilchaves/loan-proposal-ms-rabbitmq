@@ -1,8 +1,8 @@
-package br.com.guilchaves.creditofferapp.scheduler;
+package br.com.guilchaves.loanproposal.scheduler;
 
-import br.com.guilchaves.creditofferapp.entities.Proposal;
-import br.com.guilchaves.creditofferapp.repositories.ProposalRepository;
-import br.com.guilchaves.creditofferapp.services.NotificationService;
+import br.com.guilchaves.loanproposal.entities.Proposal;
+import br.com.guilchaves.loanproposal.repositories.ProposalRepository;
+import br.com.guilchaves.loanproposal.services.NotificationService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;

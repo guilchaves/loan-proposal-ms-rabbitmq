@@ -1,6 +1,6 @@
-package br.com.guilchaves.creditofferapp.services;
+package br.com.guilchaves.loanproposal.services;
 
-import br.com.guilchaves.creditofferapp.entities.Proposal;
+import br.com.guilchaves.loanproposal.entities.Proposal;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

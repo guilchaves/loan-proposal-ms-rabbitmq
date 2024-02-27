@@ -1,9 +1,8 @@
-package br.com.guilchaves.creditofferapp.controllers;
+package br.com.guilchaves.loanproposal.controllers;
 
-import br.com.guilchaves.creditofferapp.dto.ProposalRequestDTO;
-import br.com.guilchaves.creditofferapp.dto.ProposalResponseDTO;
-import br.com.guilchaves.creditofferapp.services.ProposalService;
-import org.apache.coyote.Response;
+import br.com.guilchaves.loanproposal.dto.ProposalRequestDTO;
+import br.com.guilchaves.loanproposal.dto.ProposalResponseDTO;
+import br.com.guilchaves.loanproposal.services.ProposalService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

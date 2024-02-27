@@ -1,8 +1,7 @@
-package br.com.guilchaves.creditofferapp.dto;
+package br.com.guilchaves.loanproposal.dto;
 
-public class ProposalResponseDTO {
+public class ProposalRequestDTO {
 
-    private Long id;
     private String name;
     private String lastName;
     private String phone;
@@ -10,14 +9,11 @@ public class ProposalResponseDTO {
     private Double income;
     private Double requestedAmount;
     private int loanRepaymentTermMonths;
-    private Boolean approved;
-    private String observation;
 
-    public ProposalResponseDTO() {
+    public ProposalRequestDTO() {
     }
 
-    public ProposalResponseDTO(Long id, String name, String lastName, String phone, String document, Double income, Double requestedAmount, int loanRepaymentTermMonths, Boolean approved, String observation) {
-        this.id = id;
+    public ProposalRequestDTO(String name, String lastName, String phone, String document, Double income, Double requestedAmount, int loanRepaymentTermMonths) {
         this.name = name;
         this.lastName = lastName;
         this.phone = phone;
@@ -25,16 +21,6 @@ public class ProposalResponseDTO {
         this.income = income;
         this.requestedAmount = requestedAmount;
         this.loanRepaymentTermMonths = loanRepaymentTermMonths;
-        this.approved = approved;
-        this.observation = observation;
-    }
-
-    public Long getId(){
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getName() {
@@ -91,21 +77,5 @@ public class ProposalResponseDTO {
 
     public void setLoanRepaymentTermMonths(int loanRepaymentTermMonths) {
         this.loanRepaymentTermMonths = loanRepaymentTermMonths;
-    }
-
-    public Boolean getApproved() {
-        return approved;
-    }
-
-    public void setApproved(Boolean approved) {
-        this.approved = approved;
-    }
-
-    public String getObservation() {
-        return observation;
-    }
-
-    public void setObservation(String observation) {
-        this.observation = observation;
     }
 }

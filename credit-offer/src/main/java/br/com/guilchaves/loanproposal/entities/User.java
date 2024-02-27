@@ -1,4 +1,4 @@
-package br.com.guilchaves.creditofferapp.entities;
+package br.com.guilchaves.loanproposal.entities;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;

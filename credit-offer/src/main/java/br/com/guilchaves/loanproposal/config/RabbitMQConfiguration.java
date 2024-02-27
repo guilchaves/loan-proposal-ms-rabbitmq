@@ -1,4 +1,4 @@
-package br.com.guilchaves.creditofferapp.config;
+package br.com.guilchaves.loanproposal.config;
 
 import org.springframework.amqp.core.*;
 import org.springframework.amqp.rabbit.connection.ConnectionFactory;

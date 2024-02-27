@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.guilchaves</groupId>
-	<artifactId>credit-offer</artifactId>
+	<artifactId>loan-proposal</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>credit-offer-app</name>
 	<description>Microservice responsible for credit offer registration.</description>

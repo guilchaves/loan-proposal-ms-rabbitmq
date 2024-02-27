@@ -1,7 +1,8 @@
-package br.com.guilchaves.creditofferapp.dto;
+package br.com.guilchaves.loanproposal.dto;
 
-public class ProposalRequestDTO {
+public class ProposalResponseDTO {
 
+    private Long id;
     private String name;
     private String lastName;
     private String phone;
@@ -9,11 +10,14 @@ public class ProposalRequestDTO {
     private Double income;
     private Double requestedAmount;
     private int loanRepaymentTermMonths;
+    private Boolean approved;
+    private String observation;
 
-    public ProposalRequestDTO() {
+    public ProposalResponseDTO() {
     }
 
-    public ProposalRequestDTO(String name, String lastName, String phone, String document, Double income, Double requestedAmount, int loanRepaymentTermMonths) {
+    public ProposalResponseDTO(Long id, String name, String lastName, String phone, String document, Double income, Double requestedAmount, int loanRepaymentTermMonths, Boolean approved, String observation) {
+        this.id = id;
         this.name = name;
         this.lastName = lastName;
         this.phone = phone;
@@ -21,6 +25,16 @@ public class ProposalRequestDTO {
         this.income = income;
         this.requestedAmount = requestedAmount;
         this.loanRepaymentTermMonths = loanRepaymentTermMonths;
+        this.approved = approved;
+        this.observation = observation;
+    }
+
+    public Long getId(){
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -77,5 +91,21 @@ public class ProposalRequestDTO {
 
     public void setLoanRepaymentTermMonths(int loanRepaymentTermMonths) {
         this.loanRepaymentTermMonths = loanRepaymentTermMonths;
+    }
+
+    public Boolean getApproved() {
+        return approved;
+    }
+
+    public void setApproved(Boolean approved) {
+        this.approved = approved;
+    }
+
+    public String getObservation() {
+        return observation;
+    }
+
+    public void setObservation(String observation) {
+        this.observation = observation;
     }
 }

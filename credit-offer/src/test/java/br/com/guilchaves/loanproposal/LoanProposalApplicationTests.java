@@ -1,10 +1,10 @@
-package br.com.guilchaves.creditofferapp;
+package br.com.guilchaves.loanproposal;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class CreditOfferApplicationTests {
+class LoanProposalApplicationTests {
 
 	@Test
 	void contextLoads() {
