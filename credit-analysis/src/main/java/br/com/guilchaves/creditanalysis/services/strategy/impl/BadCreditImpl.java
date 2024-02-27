@@ -2,9 +2,11 @@ package br.com.guilchaves.creditanalysis.services.strategy.impl;
 
 import br.com.guilchaves.creditanalysis.domain.Proposal;
 import br.com.guilchaves.creditanalysis.services.strategy.InternalScoreCalculation;
+import org.springframework.stereotype.Component;
 
 import java.util.Random;
 
+@Component
 public class BadCreditImpl implements InternalScoreCalculation {
 
     @Override
