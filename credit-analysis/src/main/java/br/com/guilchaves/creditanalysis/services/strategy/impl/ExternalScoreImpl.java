@@ -9,7 +9,7 @@ import java.util.Random;
 
 @Order(2)
 @Component
-public class InternalScoreImpl implements InternalScoreCalculation {
+public class ExternalScoreImpl implements InternalScoreCalculation {
 
     @Override
     public int calculate(Proposal proposal) {
