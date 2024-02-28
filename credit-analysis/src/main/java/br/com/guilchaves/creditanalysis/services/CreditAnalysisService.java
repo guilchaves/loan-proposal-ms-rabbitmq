@@ -24,8 +24,8 @@ public class CreditAnalysisService {
 
     public void analyze(Proposal proposal) {
         try {
-            boolean approved = calculateScoreList.stream().mapToInt(impl -> impl.calculate(proposal)).sum() > 350;
-            proposal.setApproved(approved);
+            int score = calculateScoreList.stream().mapToInt(impl -> impl.calculate(proposal)).sum();
+            proposal.setApproved(score > 350);
         } catch (StrategyException e) {
             proposal.setApproved(false);
             proposal.setObservation(e.getMessage());
